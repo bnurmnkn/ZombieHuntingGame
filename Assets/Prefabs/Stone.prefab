@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4838067341564878}
   - component: {fileID: 33092966369005018}
   - component: {fileID: 23445742227598232}
-  - component: {fileID: -135818473393463173}
-  - component: {fileID: 3208874444005650201}
+  - component: {fileID: -1858068733966848221}
+  - component: {fileID: 5586837563749585841}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &-135818473393463173
+--- !u!54 &-1858068733966848221
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3208874444005650201
+--- !u!65 &5586837563749585841
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +127,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
