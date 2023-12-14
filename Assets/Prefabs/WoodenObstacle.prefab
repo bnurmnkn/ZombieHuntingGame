@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33764989204799150}
   - component: {fileID: 23903698892329218}
   m_Layer: 0
-  m_Name: LowPoly - Fence A
+  m_Name: WoodenObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
