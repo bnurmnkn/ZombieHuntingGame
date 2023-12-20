@@ -34,4 +34,12 @@ public class PlayerSpawnerController : MonoBehaviour
         Vector3 playerNewPosition=new Vector3(newXvalue,transform.position.y,transform.position.z+playerSpeed* Time.deltaTime);
         transform.position=playerNewPosition;
     }
+    private void  OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="finishtag")
+        {
+            Debug.Log("OKE");
+
+        }
+    }
 }
