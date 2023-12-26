@@ -17,7 +17,12 @@ public class PlayerSpawnerController : MonoBehaviour
     float remainingLife=4;
 
     bool playerAlive= true;
+    
     //bool playerDied=false;
+
+    float maxXPosition=4.7f;
+    public AudioSource PlayerSpawnerAudioSource;
+    public AudioClip shootClip,failClip,congratsClip;
     
     
    
@@ -33,6 +38,7 @@ public class PlayerSpawnerController : MonoBehaviour
         {
             timeCounter-=Time.deltaTime;
             time.text=(int)timeCounter+"";
+            life.text=remainingLife+"";
 
             float touchX=0;
             float newXvalue=0;
@@ -47,6 +53,7 @@ public class PlayerSpawnerController : MonoBehaviour
                 touchX=Input.GetAxis("Mouse X");
             }
             newXvalue=transform.position.x+LeftRightSpeed*touchX*Time.deltaTime;
+            newXvalue=Mathf.Clamp(newXvalue,-maxXPosition,maxXPosition);
             Vector3 playerNewPosition=new Vector3(newXvalue,transform.position.y,transform.position.z+playerSpeed* Time.deltaTime);
             transform.position=playerNewPosition;
         }
@@ -61,25 +68,43 @@ public class PlayerSpawnerController : MonoBehaviour
     }
     private void  OnTriggerEnter(Collider other)
     {
-        if(other.tag=="finishtag")
+        if(other.CompareTag("finishtag"))
         {
-           
             playerAlive=true;
+            StopBackgroundMusic();
+            PlayAudio(congratsClip);
             btnContinue.gameObject.SetActive(true);
             btnHomePage.gameObject.SetActive(true);
+            Time.timeScale = 0f;
             
         }
-        if(other.tag=="bnm")
+        else if(other.CompareTag("bnm"))
         {
             remainingLife-=1;
             life.text=remainingLife+"";
             if(remainingLife==0)
             {
+                playerAlive=false;
+                StopBackgroundMusic();
+                PlayAudio(failClip);
                 btnAgain.gameObject.SetActive(true);
                 btnHomePage.gameObject.SetActive(true);
-                playerAlive=false;
+                Time.timeScale=0f;
             }
         }
     }
-  
+ 
+    private void PlayAudio(AudioClip clip)
+    {
+        if(PlayerSpawnerAudioSource !=null)
+        {
+            PlayerSpawnerAudioSource.PlayOneShot(clip,0.4f);
+        }
+
+    }
+    private void StopBackgroundMusic()
+    {
+        Camera.main.GetComponent<AudioSource>().Stop();
+    }
+    
 }
