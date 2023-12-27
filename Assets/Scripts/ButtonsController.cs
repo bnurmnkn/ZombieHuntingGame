@@ -8,8 +8,9 @@ public class HomeMenu : MonoBehaviour
 {
     public void PlayButton()
     {
-        int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
-        SceneManager.LoadScene(nextIndex);
+        //int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
+        //SceneManager.LoadScene(nextIndex);
+        SceneManager.LoadScene(1);
 
     } 
   
@@ -33,6 +34,7 @@ public class HomeMenu : MonoBehaviour
     {
         int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
         SceneManager.LoadScene(nextIndex);
+        Time.timeScale=1f;
 
     }
   

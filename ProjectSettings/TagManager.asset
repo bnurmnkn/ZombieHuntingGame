@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bnm
   - finishtag
+  - player
   layers:
   - Default
   - TransparentFX

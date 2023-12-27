@@ -7,18 +7,19 @@ using TMPro;
 
 public class PlayerSpawnerController : MonoBehaviour
 {
-    float playerSpeed=8f;
+    public float playerSpeed=8f;
     float LeftRightSpeed;
     public TextMeshProUGUI time,life;
     public Button btnAgain;
     public Button btnContinue;
     public Button btnHomePage;
-    float timeCounter=20f;
-    float remainingLife=4;
+    public float timeCounter=20f;
+    public float remainingLife=4;
 
-    bool playerAlive= true;
+    bool playerAlive=true;
     
     //bool playerDied=false;
+    bool isPlayerMoving;
 
     float maxXPosition=4.7f;
     public AudioSource PlayerSpawnerAudioSource;
@@ -28,7 +29,7 @@ public class PlayerSpawnerController : MonoBehaviour
    
     void Start()
     {
-        
+       
     }
 
     
@@ -63,12 +64,12 @@ public class PlayerSpawnerController : MonoBehaviour
             btnAgain.gameObject.SetActive(true);
             btnHomePage.gameObject.SetActive(true);
         }
-       
+        
         
     }
     private void  OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("finishtag"))
+        if(other.CompareTag("finishtag"))  
         {
             playerAlive=true;
             StopBackgroundMusic();
@@ -107,4 +108,10 @@ public class PlayerSpawnerController : MonoBehaviour
         Camera.main.GetComponent<AudioSource>().Stop();
     }
     
+    public void ZombieDetected()
+    {
+        playerAlive=false;
+        //zombilere bak
+
+    }
 }
