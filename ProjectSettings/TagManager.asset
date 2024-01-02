@@ -7,6 +7,9 @@ TagManager:
   - bnm
   - finishtag
   - player
+  - Zombi
+  - bullet
+  - playerSpawner
   layers:
   - Default
   - TransparentFX

@@ -1440,6 +1440,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820940414}
   m_Mesh: {fileID: 4300000, guid: 5e2014be033556f40a1edc309b04e729, type: 3}
+--- !u!4 &832385957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3494349120900031416, guid: 77f3b31f43bf70a4dba8494afba55b39, type: 3}
+  m_PrefabInstance: {fileID: 2097656008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &851813444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1460943383193901843, guid: 9e896aa4f146d8c458cf0b3bca8d81fe, type: 3}
@@ -2339,7 +2344,7 @@ GameObject:
   - component: {fileID: 1204970380}
   m_Layer: 0
   m_Name: ZombieSpawner
-  m_TagString: Untagged
+  m_TagString: Zombi
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2359,6 +2364,8 @@ MonoBehaviour:
   ZombieGO: {fileID: 6687537852858920834, guid: 1406a35c706becf4e8d97ef199e8c423, type: 3}
   zombieCount: 3
   zombieList: []
+  playerSpawnerGO: {fileID: 0}
+  playerSpawnerControllerScript: {fileID: 0}
 --- !u!4 &1204970379
 Transform:
   m_ObjectHideFlags: 0
@@ -2393,8 +2400,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.680426, y: 0.81821525, z: 15.258308}
-  m_Center: {x: 0.49055195, y: -0.090892196, z: -0.40631485}
+  m_Size: {x: 5.479285, y: 1.8829441, z: 7.2391815}
+  m_Center: {x: 0.8269036, y: 1.5190823, z: -1.6214828}
 --- !u!1 &1227787487
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,7 +3656,7 @@ GameObject:
   - component: {fileID: 1746212098}
   m_Layer: 0
   m_Name: PlayerSpawner
-  m_TagString: Untagged
+  m_TagString: playerSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3662,8 +3669,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746212094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.13}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 11.129997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3688,12 +3695,14 @@ MonoBehaviour:
   btnAgain: {fileID: 1704266737}
   btnContinue: {fileID: 492414789}
   btnHomePage: {fileID: 1150302131}
-  timeCounter: 20
+  timeCounter: 15
   remainingLife: 4
   PlayerSpawnerAudioSource: {fileID: 1298513549}
   shootClip: {fileID: 8300000, guid: 9c59977318b6e204a984e9fdab11a6ed, type: 3}
   failClip: {fileID: 8300000, guid: 55c1ab1a13bc23042bb7b77a63ae91e0, type: 3}
   congratsClip: {fileID: 8300000, guid: 74ed09536955438418d5c32b976cb732, type: 3}
+  bulletGO: {fileID: 4063646130712777501, guid: 428e1b78986510e45b59e71079c4de6a, type: 3}
+  bulletSpawnTransform: {fileID: 832385957}
 --- !u!65 &1746212098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4681,6 +4690,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c08eeea44ae045a409d1e9729ce975f7, type: 2}
+    - target: {fileID: 3494349120900031416, guid: 77f3b31f43bf70a4dba8494afba55b39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494349120900031416, guid: 77f3b31f43bf70a4dba8494afba55b39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494349120900031416, guid: 77f3b31f43bf70a4dba8494afba55b39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.491
+      objectReference: {fileID: 0}
     - target: {fileID: 8352400912097934321, guid: 77f3b31f43bf70a4dba8494afba55b39, type: 3}
       propertyPath: m_Name
       value: 'Player '
@@ -4978,8 +4999,8 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1952207642}
-  - {fileID: 1987108692}
   - {fileID: 1746212096}
+  - {fileID: 1987108692}
   - {fileID: 2000432724}
   - {fileID: 1069722969}
   - {fileID: 432657673}

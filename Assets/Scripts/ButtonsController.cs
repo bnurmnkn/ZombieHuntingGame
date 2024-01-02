@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class HomeMenu : MonoBehaviour
 {
+
+    int level;
     public void PlayButton()
     {
         //int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
         //SceneManager.LoadScene(nextIndex);
         SceneManager.LoadScene(1);
+        Time.timeScale=1f;
 
     } 
   
@@ -20,18 +23,34 @@ public class HomeMenu : MonoBehaviour
         Application.Quit();
 
     }  
+    public void CountinueButton()
+    {
+        level=PlayerPrefs.GetInt("Level",1);
+        SceneManager.LoadScene(level);
+
+    }
+
+
+
+
     public void HomePages()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale=1f;
     }
     public void GameAgainButton()
     {
        int Index=SceneManager.GetActiveScene().buildIndex;
        SceneManager.LoadScene(Index);
+       Time.timeScale=1f;
 
     }
      public void GameCountinueButton()
     {
+        level=PlayerPrefs.GetInt("Level",1);
+        level++;
+        PlayerPrefs.SetInt("Level",level);
+
         int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
         SceneManager.LoadScene(nextIndex);
         Time.timeScale=1f;
