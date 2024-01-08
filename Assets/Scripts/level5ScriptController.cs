@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class level5ScriptController : MonoBehaviour
@@ -63,6 +64,9 @@ public class level5ScriptController : MonoBehaviour
 
         if(timeCounter<0)
         {
+            int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
             playerAlive=false;
             StopBackgroundMusic();
             PlayAudio(failClip);
@@ -92,6 +96,9 @@ public class level5ScriptController : MonoBehaviour
         }
         if(other.CompareTag("over"))
         {
+            int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
             remainingLife=0;
             playerAlive=false;
             StopBackgroundMusic();
@@ -107,6 +114,9 @@ public class level5ScriptController : MonoBehaviour
             life.text=remainingLife+"";
             if(remainingLife==0)
             {
+                int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
                 playerAlive=false;
                 StopBackgroundMusic();
                 PlayAudio(failClip);

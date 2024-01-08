@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerSpawnerController : MonoBehaviour
@@ -64,6 +65,9 @@ public class PlayerSpawnerController : MonoBehaviour
 
         if(timeCounter<0)
         {
+            int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
             playerAlive=false;
             StopBackgroundMusic();
             PlayAudio(failClip);
@@ -92,8 +96,11 @@ public class PlayerSpawnerController : MonoBehaviour
             btnHomePage.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
-        if(other.CompareTag("over"))
+        if(other.CompareTag("over"))// burası da
         {
+              int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
             remainingLife=0;
             playerAlive=false;
             StopBackgroundMusic();
@@ -110,6 +117,9 @@ public class PlayerSpawnerController : MonoBehaviour
             life.text=remainingLife+"";
             if(remainingLife==0)
             {
+                int level=SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();//burası yandığı kısım değil mi 
                 playerAlive=false;
                 StopBackgroundMusic();
                 PlayAudio(failClip);

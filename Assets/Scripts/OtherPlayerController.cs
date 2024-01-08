@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OtherPlayerController : MonoBehaviour
 {
@@ -57,6 +58,9 @@ public class OtherPlayerController : MonoBehaviour
 
         if(timeCounter<0)
         {
+            int level=SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("Level",level);
+            PlayerPrefs.Save();
             playerAlive=false;
             StopBackgroundMusic();
             PlayAudio(failClip);
@@ -83,6 +87,9 @@ public class OtherPlayerController : MonoBehaviour
             life.text=remainingLife+"";
             if(remainingLife==0)
             {
+                int level=SceneManager.GetActiveScene().buildIndex;//hata veriyor
+                PlayerPrefs.SetInt("Level",level);
+                PlayerPrefs.Save();
                 playerAlive=false;
                 StopBackgroundMusic();
                 PlayAudio(failClip);

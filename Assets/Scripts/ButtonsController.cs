@@ -10,10 +10,10 @@ public class HomeMenu : MonoBehaviour
     int level;
     public void PlayButton()
     {
-        //int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
-        //SceneManager.LoadScene(nextIndex);
+        
         SceneManager.LoadScene(1);
         Time.timeScale=1f;
+        
 
     } 
   
@@ -25,7 +25,10 @@ public class HomeMenu : MonoBehaviour
     }  
     public void CountinueButton()
     {
+       
+       
         level=PlayerPrefs.GetInt("Level",1);
+        Debug.Log(level);
         SceneManager.LoadScene(level);
 
     }
@@ -47,14 +50,14 @@ public class HomeMenu : MonoBehaviour
     }
      public void GameCountinueButton()
     {
-        level=PlayerPrefs.GetInt("Level",1);
+        level=SceneManager.GetActiveScene().buildIndex;
+       
         level++;
         PlayerPrefs.SetInt("Level",level);
+        PlayerPrefs.Save();
 
-        int nextIndex=SceneManager.GetActiveScene().buildIndex+1;
-        SceneManager.LoadScene(nextIndex);
+        SceneManager.LoadScene(level);
         Time.timeScale=1f;
-
     }
   
 }
