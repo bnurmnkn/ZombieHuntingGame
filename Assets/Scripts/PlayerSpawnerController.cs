@@ -23,6 +23,7 @@ public class PlayerSpawnerController : MonoBehaviour
     public Transform bulletSpawnTransform;
     private float bulletSpeed = 13f;
     
+    
      Transform Player;
      Transform Zombi;
 
@@ -30,14 +31,13 @@ public class PlayerSpawnerController : MonoBehaviour
     {
        Player=GameObject.FindGameObjectWithTag("player").transform;
        Zombi=GameObject.FindGameObjectWithTag("Zombi").transform;
+       
     }
 
     
     void Update()
     {
        
-    
-
         timeCounter-=Time.deltaTime;
         time.text=(int)timeCounter+"";
         life.text=remainingLife+"";
@@ -78,6 +78,7 @@ public class PlayerSpawnerController : MonoBehaviour
         Debug.Log("mesafe");
         Shoot();
         
+        
        }
     }
     private void  OnTriggerEnter(Collider other)
@@ -90,6 +91,18 @@ public class PlayerSpawnerController : MonoBehaviour
             btnContinue.gameObject.SetActive(true);
             btnHomePage.gameObject.SetActive(true);
             Time.timeScale = 0f;
+        }
+        if(other.CompareTag("over"))
+        {
+            remainingLife=0;
+            playerAlive=false;
+            StopBackgroundMusic();
+            PlayAudio(failClip);
+            btnAgain.gameObject.SetActive(true);
+            btnHomePage.gameObject.SetActive(true);
+            Time.timeScale=0f;
+
+
         }
         else if(other.CompareTag("bnm"))
         {
@@ -132,15 +145,5 @@ public class PlayerSpawnerController : MonoBehaviour
     Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
     bulletRB.velocity = transform.forward * bulletSpeed;
     PlayAudio(shootClip);
-
-     
-
-    
     }
-    public void MovePlayer()
-    {
-        Time.timeScale=1f;
-
-    }
-
 }

@@ -3662,13 +3662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81244bebb7b3efe4e93bf76e79162715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 8
+  playerSpeed: 7
   time: {fileID: 1505872665}
   life: {fileID: 1705741501}
   btnAgain: {fileID: 1704266737}
   btnContinue: {fileID: 492414789}
   btnHomePage: {fileID: 1150302131}
-  timeCounter: 10
+  timeCounter: 17
   remainingLife: 2
   PlayerSpawnerAudioSource: {fileID: 1298513549}
   shootClip: {fileID: 8300000, guid: 9c59977318b6e204a984e9fdab11a6ed, type: 3}

@@ -7,18 +7,20 @@ public class ZombieSpawnerController : MonoBehaviour
     public GameObject ZombieGO;
     public int zombieCount=0;
     public List<GameObject> zombieList=new List<GameObject>();
-    public GameObject playerSpawnerGO;
-    public PlayerSpawnerController playerSpawnerControllerScript;
+    //public ZombieController _zombieControllerScripti;
+    
   
     void Start()
     {
-        playerSpawnerGO=GameObject.FindGameObjectWithTag("playerSpawner");
-        playerSpawnerControllerScript=playerSpawnerGO.GetComponent<PlayerSpawnerController>();
+        
         SpawnZombie();
+        //_zombieControllerScripti = ZombieGO.GetComponent<ZombieController>();
+        
     }
 
     void Update()
     {
+        
     
     }
     public void SpawnZombie()
@@ -38,22 +40,15 @@ public class ZombieSpawnerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="playerSpawner")
-        {
-            //playerSpawnerControllerScript.ZombieDetected();
-            GetComponent<BoxCollider>().enabled = false;
-        }
-        if(other.CompareTag("bullet"))
+        
+
+        if (other.CompareTag("bullet"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
-            
-            
-            
-
-            
+             
         }
         
     }
-    
+  
 }
