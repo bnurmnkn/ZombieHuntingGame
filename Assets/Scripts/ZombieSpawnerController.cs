@@ -7,14 +7,12 @@ public class ZombieSpawnerController : MonoBehaviour
     public GameObject ZombieGO;
     public int zombieCount=0;
     public List<GameObject> zombieList=new List<GameObject>();
-    //public ZombieController _zombieControllerScripti;
+    
     
   
     void Start()
     {
-        
         SpawnZombie();
-        //_zombieControllerScripti = ZombieGO.GetComponent<ZombieController>();
         
     }
 

@@ -14,7 +14,6 @@ public class NewBehaviourScript : MonoBehaviour
         nMesh.destination=player.position;
         
     }
-
     
     void Update()
     {

@@ -30,11 +30,9 @@ public class HomeMenu : MonoBehaviour
         level=PlayerPrefs.GetInt("Level",1);
         Debug.Log(level);
         SceneManager.LoadScene(level);
+        Time.timeScale=1f;
 
     }
-
-
-
 
     public void HomePages()
     {

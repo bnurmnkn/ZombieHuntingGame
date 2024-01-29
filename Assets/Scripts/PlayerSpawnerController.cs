@@ -66,8 +66,8 @@ public class PlayerSpawnerController : MonoBehaviour
         if(timeCounter<0)
         {
             int level=SceneManager.GetActiveScene().buildIndex;
-                PlayerPrefs.SetInt("Level",level);
-                PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Level",level);
+            PlayerPrefs.Save();
             playerAlive=false;
             StopBackgroundMusic();
             PlayAudio(failClip);
@@ -77,7 +77,7 @@ public class PlayerSpawnerController : MonoBehaviour
         }
         float mesafe=Vector3.Distance(Player.position,Zombi.position);
        
-       if(mesafe<13 )
+       if(mesafe<35 )
        {
         Debug.Log("mesafe");
         Shoot();
